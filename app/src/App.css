@@ -1,0 +1,21 @@
+#root{
+    width:100%; 
+}
+
+
+.App{
+
+    display:flex;
+   
+}
+
+.App-header{
+
+    display: inline-block;
+}
+
+.App-body{
+
+    display: inline-block;
+
+}

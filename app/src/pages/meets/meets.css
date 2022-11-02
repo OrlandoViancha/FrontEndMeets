@@ -1,0 +1,28 @@
+.meets-container{
+
+    height:100%;
+    width:100%;
+    border:1px solid red;
+    padding: 5%;
+}
+
+.meet-header{
+
+    display:flex;
+
+}
+.meet-header button{
+
+    margin-left:8%;
+    border:none;
+    background-color: #1061EF;
+    color:#fff;
+    border-radius:30px;
+    width:200px;
+}
+
+@media (max-width:628px){
+    .meets-container{
+        padding:0;
+    }
+}
