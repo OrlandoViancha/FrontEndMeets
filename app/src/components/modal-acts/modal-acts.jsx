@@ -7,11 +7,16 @@ const ModalActs = ({ meetId }) => {
 
   const SendDataAct = () => {
 
-    Axios.post("http://localhost:8080/acts", {
+    Axios.post("https://meetapielectiva.herokuapp.com/acts", {
       description: act,
       meet: { id: meetId },
+    })
+    .then((response) =>{
+      if(response.status === 200){
+        window.location.reload();
+      }
     });
-    window.location.reload();
+    
   };
 
   const CloseModalAct=(e)=> {

@@ -13,8 +13,13 @@ const ModalGetAct = ({ act }) => {
         
         console.log(act.id)
         e.preventDefault();
-        Axios.delete(`http://localhost:8080/acts/${act.id}`)
-        window.location.reload();
+        Axios.delete(`https://meetapielectiva.herokuapp.com/acts/${act.id}`).
+        then(response=>{
+          if(response.status === 200){
+            window.location.reload();
+          }
+        })
+        
       }
   return (
     <>

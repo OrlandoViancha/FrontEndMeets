@@ -1,13 +1,13 @@
 .meet-item-container{
     
     margin:15px;
-    border: 1px solid blue;
-    width:45%;
+    width: 30%;
     height:250px;
     padding:5px;
     text-align:center;
     border-radius: 10px;
     display: inline-block;
+    box-shadow: 2px 2px 2px 5px rgba(0, 0, 0, 0.2);
     
 }
 

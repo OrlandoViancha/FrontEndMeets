@@ -4,8 +4,7 @@ const Queries=()=>{
     return(
 
         <>
-        
-            Vista Queries
+            
         </>
     );
 }

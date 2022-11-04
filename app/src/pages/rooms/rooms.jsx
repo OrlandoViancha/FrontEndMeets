@@ -10,7 +10,7 @@ const Rooms = () => {
   const [state,setState]=useState(1);
 
   useEffect(() => {
-    Axios.get("http://localhost:8080/rooms", {}).then((response) => {
+    Axios.get("https://meetapielectiva.herokuapp.com/rooms/getRooms", {}).then((response) => {
       setRooms(response.data);
     });
   }, []);
@@ -30,7 +30,7 @@ const Rooms = () => {
 
   const DeleteRoom=(id)=>{
 
-    Axios.delete(`http://localhost:8080/rooms/${id}`)
+    Axios.delete(`https://meetapielectiva.herokuapp.com/rooms/${id}`)
     .then((response) => {
         window.location.href="./rooms"
     })

@@ -10,7 +10,7 @@ const ModalMeets = () => {
 
   useEffect(()=>{
 
-    Axios.get("http://localhost:8080/rooms")
+    Axios.get("https://meetapielectiva.herokuapp.com/rooms/getRooms")
     .then(response =>setRooms(response.data))
   }
   ,[])
@@ -20,13 +20,17 @@ const ModalMeets = () => {
     const room=document.getElementById("room").value;
     
     
-    Axios.post("http://localhost:8080/meets",{
+    Axios.post("https://meetapielectiva.herokuapp.com/meets",{
         affair:affair,
         dateMeet:dateMeet, 
         room:{id:room}
         
     })
-    window.location.href="./meets";
+    .then(response=>{
+      if(response.status === 200){
+        window.location.reload();
+      }
+    })
   }
 
  

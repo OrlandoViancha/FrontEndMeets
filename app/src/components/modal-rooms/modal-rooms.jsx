@@ -17,7 +17,7 @@ const ModalRooms = ({state}) => {
   const SendDataRoom=(e)=>{ 
 
         if(state.state==1){
-          Axios.post("http://localhost:8080/rooms",{
+          Axios.post("https://meetapielectiva.herokuapp.com/rooms/addRoom",{
             capacity:capacity,
             description:name
         })
@@ -25,7 +25,7 @@ const ModalRooms = ({state}) => {
 
         else{
 
-          Axios.put(`http://localhost:8080/rooms/${state.id}`,{
+          Axios.put(`https://meetapielectiva.herokuapp.com/rooms/${state.id}`,{
 
             id:state.id,
             capacity:document.getElementById("input-capacity").value,

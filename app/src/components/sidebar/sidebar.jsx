@@ -11,7 +11,7 @@ const Sidebar=()=>{
             <ul>
                 <li><a className ="links-sidebar"href="./rooms"><FontAwesomeIcon className="icon-sidebar" icon={faHome} />Salas</a></li>
                 <li><a className ="links-sidebar" href="./meets"><FontAwesomeIcon className="icon-sidebar" icon={faHandshake} />Reuniones</a></li>
-                <li><a className ="links-sidebar" href="./queries"><FontAwesomeIcon className="icon-sidebar" icon={faClipboardList} /> Consultas</a></li>
+                
             </ul> 
 
         </div>

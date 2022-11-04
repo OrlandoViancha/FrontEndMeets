@@ -9,6 +9,8 @@ import Axios from "axios";
 
 const MeetItem=({id,affair,date,room,act})=>{
 
+
+
     const {setIdMeet,setAct}=useContext(ActContext)
 
     const OpenModalActs=()=>{
@@ -31,9 +33,9 @@ const MeetItem=({id,affair,date,room,act})=>{
 
     const DeleteMeetItem=()=>{
 
-        Axios.delete(`http://localhost:8080/meets/${id}`)
+        Axios.delete(`https://meetapielectiva.herokuapp.com/meets/${id}`)
         .then(response=>{
-            if(response.data!=null){
+            if(response.status === 200){
                 window.location.reload();
             }
         })
@@ -49,8 +51,8 @@ const MeetItem=({id,affair,date,room,act})=>{
                 <div className="meet-item-info">Acta:
                 {
                     (act==null)
-                    ? <i onClick={e=>OpenModalActs()}> <FontAwesomeIcon size= "2xl"className="icon-sidebar" icon={faPlus} /></i>
-                    : <i  onClick={e=>OpenModalGetActs()}> <FontAwesomeIcon size= "2xl"className="icon-sidebar" icon={faNewspaper} /></i>
+                    ? <i onClick={e=>OpenModalActs()}> <FontAwesomeIcon size= "2xl"className="button-actions" icon={faPlus} /></i>
+                    : <i  onClick={e=>OpenModalGetActs()}> <FontAwesomeIcon size= "2xl"className="button-actions" icon={faNewspaper} /></i>
                 }
                 </div>
 

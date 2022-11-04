@@ -1,12 +1,13 @@
 #root{
     width:100%; 
+    
 }
 
 
 .App{
 
     display:flex;
-   
+    
 }
 
 .App-header{
@@ -17,5 +18,7 @@
 .App-body{
 
     display: inline-block;
+    width: 100%;
+    
 
 }

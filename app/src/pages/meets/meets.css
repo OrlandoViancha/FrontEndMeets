@@ -1,19 +1,27 @@
-.meets-container{
 
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.meets-container{
+    
     height:100%;
-    width:100%;
-    border:1px solid red;
+    width:100%; 
     padding: 5%;
+    display: inline-block;
 }
 
 .meet-header{
 
     display:flex;
+    justify-content: space-between;
 
 }
 .meet-header button{
 
-    margin-left:8%;
+    
+    margin-left:20%;
     border:none;
     background-color: #1061EF;
     color:#fff;
