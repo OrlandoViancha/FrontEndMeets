@@ -3,8 +3,7 @@ import MeetItem from "../../components/meet-item/meet-item";
 import "./meet-list.css";
 const MeetList = ({ meets,rooms,query,stateQuery }) => {
 
-  const [room,setRoom]=useState(null);
-  const [meet,setMeet]=useState();
+  
 
   const FiltrerRoom=(id)=>{
 

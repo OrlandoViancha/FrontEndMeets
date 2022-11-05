@@ -6,7 +6,7 @@ import { ActContext } from "../../context/act-context";
 import "./meet-item.css"
 import { faTrashCan,faPen} from "@fortawesome/free-solid-svg-icons";
 import Axios from "axios";
-
+import WindowAlert from "sweetalert";
 const MeetItem=({id,affair,date,room,act})=>{
 
 
@@ -34,11 +34,36 @@ const MeetItem=({id,affair,date,room,act})=>{
     const DeleteMeetItem=()=>{
 
         Axios.delete(`https://meetapielectiva.herokuapp.com/meets/${id}`)
-        .then(response=>{
-            if(response.status === 200){
+        .then((response) => {
+            if (response.status == 200) {
+              WindowAlert({
+                title: "Eliminar Reunion",
+                text: "Eliminada Correctamente",
+                icon: "success",
+                timer: "3000",
+              });
+      
+              setTimeout(() => {
                 window.location.reload();
+              }, 2000);
             }
-        })
+          })
+          .catch((error) =>{
+
+            if (error.response.data.status == 500) {
+                WindowAlert({
+                  title: "Eliminar Reunión",
+                  text: "Error al eliminar la reunion",
+                  icon: "error",
+                  timer: "3000",
+                });
+        
+                
+              }
+
+          });
+
+          
     }
     
     return(

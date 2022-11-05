@@ -3,16 +3,27 @@ import Axios from "axios";
 import Modal from "../../components/modal-rooms/modal-rooms";
 import { useEffect, useState } from "react";
 import { faTrashCan,faPen} from "@fortawesome/free-solid-svg-icons";
-
+import WindowAlert from "sweetalert";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Spinner } from "reactstrap";
 const Rooms = () => {
   const [rooms, setRooms] = useState([]);
   const [state,setState]=useState(1);
+  const [loading,setLoading] = useState(false)
 
   useEffect(() => {
     Axios.get("https://meetapielectiva.herokuapp.com/rooms/getRooms", {}).then((response) => {
       setRooms(response.data);
-    });
+
+      if(response.status ==200){
+
+        setTimeout(() => {
+          setLoading(true);
+        }, 2000);
+        
+      }
+    })
+    
   }, []);
 
   const OpenModalDescription = () => {
@@ -29,15 +40,59 @@ const Rooms = () => {
   }
 
   const DeleteRoom=(id)=>{
-
+    
     Axios.delete(`https://meetapielectiva.herokuapp.com/rooms/${id}`)
-    .then((response) => {
-        window.location.href="./rooms"
+
+    .then(response=>{
+
+      if(response.status==200){
+
+        WindowAlert(
+          {
+            title:"Eliminar Sala",
+            text: "Eliminada Correctamente",
+            icon: "success",
+            timer:"3000"
+          })
+        
+        setTimeout(
+          ()=>{
+            window.location.reload();
+          },2000
+        )
+       
+      }
     })
+
+    .catch(error=>{
+
+      if(error.response.data.status==500){
+
+        WindowAlert(
+          {
+            title:"Eliminar Sala",
+            text: "Error No puede eliminar la sala",
+            icon: "error",
+            timer:"3000"
+          }
+        )
+      }
+
+    }
+
+     
+    )
 
   }
   return (
+
+    (loading==false)
+    ?<Spinner animation="border" role="status">
+    <span className="visually-hidden">Loading...</span>
+  </Spinner>
+    :
     <>
+    
       <div className="rooms-container">
         <div className="table-container">
           <div className="table-head">

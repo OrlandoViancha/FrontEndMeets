@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BiXCircle } from "react-icons/bi";
 import Axios from "axios";
 import "./modal-acts.css";
+import WindowAlert from "sweetalert";
 const ModalActs = ({ meetId }) => {
   const [act, setAct] = useState("");
 
@@ -11,11 +12,20 @@ const ModalActs = ({ meetId }) => {
       description: act,
       meet: { id: meetId },
     })
-    .then((response) =>{
-      if(response.status === 200){
-        window.location.reload();
+    .then((response) => {
+      if (response.status == 200) {
+        WindowAlert({
+          title: "Agregar Acta",
+          text: "Agregada Correctamente",
+          icon: "success",
+          timer: "3000",
+        });
+
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
       }
-    });
+    })
     
   };
 

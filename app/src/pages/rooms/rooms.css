@@ -1,8 +1,13 @@
-
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .rooms-container{
-    
+    width:100%; 
+    padding: 5%;
+    display: inline-block;
     height: 100%;
-    border:1px solid red;
     
 }
 
@@ -69,9 +74,15 @@ table {
   }
   @media screen and (max-width: 600px) {
 
+    .rooms-container{
+
+      padding:0;
+    }
+
     .table-container{
       max-height: 95vh;
       overflow-y: auto; 
+      margin:1%;
     }
     .table-container .table-head button{
 
@@ -95,7 +106,7 @@ table {
       overflow: hidden;
       padding: 0;
       position: absolute;
-      width: 1px;
+      display:block;
     }
     
     table tr {
